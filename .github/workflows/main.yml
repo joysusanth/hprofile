@@ -100,7 +100,7 @@ jobs:
           image: ${{ secrets.REGISTRY }}/${{ env.ECR_REPOSITORY}}:${{ github.run_number}}
 
       - name: Deploy tdef
-        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task_definition: ${{ steps.task-def.outputs.task-definition }}
           service: ${{ env.ECS_SERVICE }}
